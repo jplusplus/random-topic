@@ -1,5 +1,8 @@
 extends layout
 
+block header
+  link(rel='stylesheet', href='//josex2r.github.io/jQuery-SlotMachine/dist/jquery.slotmachine.css')
+
 block content
   div
     h1.center #{title}
@@ -7,28 +10,34 @@ block content
     div.clear
 
     div.slotContainer.center
-      div.slotMachine
+      div.slotMachine#slotMachine
+        div.value PRESS BUTTON TO PLAY
         each val in topics
-          div= val
+          div.value= val
 
     div.clear
 
-    div.button.center
+    div.button.center#startButton
       span 🎰
 
-  script(src="//code.jquery.com/jquery-2.1.1.min.js")
-  script(src="//josex2r.github.io/jQuery-SlotMachine/dist/jquery.slotmachine.js")
+  script(src="/static/js/slotmachine.min.js")
 
   script.
-    $(document).ready(function(){
-      var machine = $(".slotMachine").slotMachine({
-      });
-      $(".button").on("mousedown", function(){
-        var btn = $(this);
-        btn.addClass("active");
-        machine.shuffle(2, function(){
-          btn.removeClass("active");
-        })
-      });
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var slotMachineEl = document.getElementById("slotMachine");
+      var startButton = document.getElementById("startButton");
 
+      var machine = new SlotMachine(slotMachineEl, {
+        active: 0,
+        delay: 450,
+        //auto: 1500,
+        randomize() {
+          return this.random;
+        }
+      });
+      
+      startButton.addEventListener('click', () => {
+        startButton.classList.add("active");
+        machine.shuffle(function() {startButton.classList.remove("active")});
+      });
     });

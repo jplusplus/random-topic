@@ -12,6 +12,10 @@ var availableTopics = {
   sverigesradio: {
     slug: "sverigesradio",
     title: "Radiobanditen"
+  },
+  ds: {
+    slug: "ds",
+    title: "Ämnen för Dagens Samhälle"
   }
 }
 

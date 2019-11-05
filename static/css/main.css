@@ -1,19 +1,19 @@
 html {
     position: relative;
-    min-height: 100%;
 }
 body{
-	font-family: "Lato";
+	font-family: mono;
 	background-color:#f3f3f3;
 }
 .container{
 	background-color:white;
 	max-width:900px;
+  min-height: 900px;
 	margin-left: auto;
 	margin-right: auto;
 }
 h1 {
-	width:40%;
+	width:60%;
 }
 .center{
 	margin-left: auto;
@@ -31,24 +31,25 @@ ul {
 
 	margin-top:1em;
 	font-size:1.7em;
-	height: 1.7em;
-	line-height: 1.7em;
+	height: 2.3em;
+	line-height: 1.8em;
 	border: 2px solid gray;
 	border-radius:4px;
-	max-width: 50%;
+	max-width: 60%;
 }
 .slotMachineContainer div{
 	padding:.2em;
+  height: 4em;
 }
 .slotMachineContainer div:nth-child(even) {
     background: darkgray;
-    color:#fff;
+    color:#efefef;
 }
 
 .button{
-	font-size: 3em;
+	font-size: 9em;
 	cursor: pointer;
-	width:3em;
+	width: 1em;
 }
 .button.active{
 	color:red;
