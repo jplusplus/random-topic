@@ -11,7 +11,7 @@ block content
 
     div.slotContainer.center
       div.slotMachine#slotMachine
-        div.value PRESS BUTTON TO PLAY
+        div.value#placeholder PRESS BUTTON TO PLAY
         each val in topics
           div.value= val
 
@@ -26,6 +26,7 @@ block content
     document.addEventListener("DOMContentLoaded", function(event) {
       var slotMachineEl = document.getElementById("slotMachine");
       var startButton = document.getElementById("startButton");
+      var placeholderEl = document.getElementById("placeholder");
 
       var machine = new SlotMachine(slotMachineEl, {
         active: 0,
@@ -38,6 +39,10 @@ block content
       
       startButton.addEventListener('click', () => {
         startButton.classList.add("active");
+        if (placeholderEl) {
+          placeholderEl.parentNode.removeChild(placeholderEl);
+          placeholderEl = null;
+        }
         machine.shuffle(function() {startButton.classList.remove("active")});
       });
     });
