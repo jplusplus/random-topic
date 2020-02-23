@@ -5,17 +5,25 @@ var favicon = require('serve-favicon')
 var app = express()
 
 var availableTopics = {
+  diverse: {
+    slug: "diverse",
+    title: "Ämnesbanditen"
+  },
   skola: {
     slug: "skola",
     title: "Skolbanditen"
   },
   sverigesradio: {
     slug: "sverigesradio",
-    title: "Radiobanditen"
+    title: "Sveriges Radio november 2019"
   },
   ds: {
     slug: "ds",
     title: "Ämnen för Dagens Samhälle"
+  },
+  sources: {
+    slug: "sources",
+    title: "Datakällor"
   }
 }
 
